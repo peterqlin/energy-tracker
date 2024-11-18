@@ -15,6 +15,8 @@ body {
   text-align: center;
 }
 
+/* Begin Navbar Style */
+
 .nav {
   background-color: #333;
   color: white;
@@ -52,4 +54,52 @@ body {
 
 nav li:hover {
   background-color: #555;
+}
+
+/* End Navbar Style */
+
+/* Begin Circle Style */
+
+.circle-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+}
+
+.circle-container ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  gap: 5rem;
+}
+
+div.circle {
+  border: 10px solid #333;
+  background-color: #555;
+  border-radius: 50%;
+  width: 25vh;
+  height: 25vh;
+  position: absolute;
+  z-index: 1;
+}
+
+/* End Circle Style */
+
+/* Begin Line Style */
+
+svg.line {
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  z-index: 2;
+}
+
+/* End Line Style */
+
+.shape-container {
+  position: relative;
 }

@@ -7,7 +7,6 @@ import Weekview from './components/Weekview';
 import './App.css';
 import './styles/styles.css'
 
-
 const App = () => {
   return (
     <>
