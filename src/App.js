@@ -1,7 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
+import './App.css';
+import Home from './Components/Home';
 
 const App = () => {
-  return <h1>Hello, React!</h1>;
+  return <div className='App'>
+    <Home />
+  </div>;
 }
 
 export default App;
