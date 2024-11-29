@@ -60,34 +60,13 @@ nav li:hover {
 
 /* Begin Circle Style */
 
-.circle-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.circle-container ul {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  display: flex;
-  gap: 5rem;
-}
-
 div.circle {
   border: 10px solid #333;
   background-color: #555;
   border-radius: 50%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%);
-  width: 50vh;
-  height: 50vh;
-  position: absolute;
-  z-index: 1;
+  width: 30vh;
+  height: 30vh;
+  z-index: 2;
 }
 
 /* End Circle Style */
@@ -96,9 +75,15 @@ div.circle {
 
 svg {
   overflow: visible;
-  transform: translate(0%, 110%);
   position: absolute;
-  z-index: 2;
+  z-index: 1;
 }
 
 /* End Line Style */
+
+.centered-component {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
