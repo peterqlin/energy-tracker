@@ -7,6 +7,7 @@ html {
 }
 
 body {
+  overflow: hidden;
   margin: 0;
 }
 
@@ -96,4 +97,19 @@ svg {
 .interactive-circle-container {
   width: 100vw;
   height: 100vh;
+}
+
+.tooltip {
+  z-index: 2;
+}
+
+.label-rect {
+  fill: #555;
+  stroke: #333;
+  stroke-width: 5px;
+}
+
+.label-text {
+  fill: white;
+  transform: translate(-15%);
 }
