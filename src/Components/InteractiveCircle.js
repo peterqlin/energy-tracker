@@ -1,9 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
+import EnergyLine from './EnergyLine';
 
 const InteractiveCircle = () => {
   const circleRef = useRef();
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [circlePosition, setCirclePosition] = useState({ x: 0, y: 0 });
+  const [isClicked, setIsClicked] = useState(false);
+  const [lines, setLines] = useState([]);
 
   useEffect(() => {
     // set the mousePosition variable whenever the cursor is moved, accounting for the offset of the circle
@@ -18,12 +21,24 @@ const InteractiveCircle = () => {
       });
     };
 
+    // when clicked, the current currsor coordinates should be saved and a static line should appear there
+    const handleClick = () => {
+      setIsClicked(!isClicked);
+      if (isClicked) {
+        setLines(prev => {
+          return [...prev, mousePosition];
+        });
+      }
+    };
+
+    window.addEventListener('click', handleClick);
     window.addEventListener('mousemove', handleMoveMouse);
 
     return () => {
+      window.removeEventListener('click', handleClick);
       window.removeEventListener('mousemove', handleMoveMouse);
     };
-  }, [circlePosition]);
+  }, [circlePosition, mousePosition]);
 
   useEffect(() => {
     // make it so resizing the window does not offset where the line points to
@@ -46,18 +61,10 @@ const InteractiveCircle = () => {
   return (
     <div className='interactive-circle-container'>
       <div ref={circleRef} className='centered-component circle'></div>
-      <div className='centered-component line-container'>
-        <svg>
-          <line
-            x1={0}
-            y1={0}
-            x2={mousePosition.x}
-            y2={mousePosition.y}
-            stroke='black'
-            strokeWidth='20'
-          />
-        </svg>
-      </div>
+      {isClicked && <EnergyLine position={mousePosition} />}
+      {lines.map((line, index) => (
+        <EnergyLine key={index} position={line} />
+      ))}
     </div>
   );
 };
