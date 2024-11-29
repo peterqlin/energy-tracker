@@ -10,13 +10,11 @@ const InteractiveCircle = () => {
     // the line should point to the cursor
     const handleMoveMouse = (event) => {
       setMousePosition(() => {
-        const angle = Math.atan(event.clientY, event.clientX);
-        console.log(angle);
+        const posX = event.clientX - circlePosition.x;
+        const posY = event.clientY - circlePosition.y;
+        const angle = Math.atan2(-posY, posX);
         let offset = 10;
-        if (event.clientY - circlePosition.y < 0) {
-          offset *= -1;
-        }
-        return { x: event.clientX - circlePosition.x - offset * Math.cos(angle), y: event.clientY - circlePosition.y - offset * Math.sin(angle) };
+        return { x: posX - offset * Math.cos(angle), y: posY + offset * Math.sin(angle) };
       });
     };
 
