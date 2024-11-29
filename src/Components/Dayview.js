@@ -6,8 +6,6 @@ const Dayview = () => {
     <div className='dayview-container'>
       <h1>Day View</h1>
       <InteractiveCircle />
-      {/* <Circle />
-        <Line /> */}
     </div>
   )
 }

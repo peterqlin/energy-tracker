@@ -60,7 +60,7 @@ const InteractiveCircle = () => {
 
   return (
     <div className='interactive-circle-container'>
-      <div ref={circleRef} className='centered-component circle'></div>
+      <div ref={circleRef} className='centered-component circle'>My Energy</div>
       {isClicked && <EnergyLine position={mousePosition} />}
       {lines.map((line, index) => (
         <EnergyLine key={index} position={line} />

@@ -61,6 +61,11 @@ nav li:hover {
 /* Begin Circle Style */
 
 div.circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 2rem;
   border: 10px solid #333;
   background-color: #555;
   border-radius: 50%;
